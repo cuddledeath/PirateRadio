@@ -6,21 +6,21 @@ Pirate Radio Jukebox
 A headless, networked music appliance designed for the Raspberry Pi Zero and the Pimoroni Pirate Audio DAC. This project turns your Pi into a dedicated shuffle-player that supports album art, physical button controls, and a wireless Samba share for easy music management.
 Features
 
-    Plug and Play: Automatically starts playing music on boot.
+Plug and Play: Automatically starts playing music on boot.
 
-    Recursive Shuffle: Scans all subdirectories in your Music folder.
+Recursive Shuffle: Scans all subdirectories in your Music folder.
 
-    State-Aware Playback: Dedicated pause logic ensures the jukebox does not skip to the next song when you hit pause.
+State-Aware Playback: Dedicated pause logic ensures the jukebox does not skip to the next song when you hit pause.
 
-    Album Art Support: Displays .jpg or .png files found in song folders, fitted perfectly to the 240x240 screen.
+Album Art Support: Displays .jpg or .png files found in song folders, fitted perfectly to the 240x240 screen.
 
-    Networked: Drag-and-drop music management via Samba (SMB).
+Networked: Drag-and-drop music management via Samba (SMB).
 
-    Physical Controls: Volume, Skip, and Play/Pause via onboard buttons.
+Physical Controls: Volume, Skip, and Play/Pause via onboard buttons.
 
-    Safe Shutdown: Avoid SD card corruption with a hardware button combo (Vol+ and Vol-).
+Safe Shutdown: Avoid SD card corruption with a hardware button combo (Vol+ and Vol-).
 
-    Custom Branding: Supports a custom logo.png boot splash.
+Custom Branding: Supports a custom logo.png boot splash.
 
 Installation
 1. Hardware Requirements
@@ -43,12 +43,15 @@ sudo apt install python3-pygame python3-st7789 python3-pil python3-gpiozero samb
 
 Configure Samba to allow wireless file transfers:
 
-    mkdir -p /home/pirate/Music
+```
+mkdir -p /home/pirate/Music
+```
 
-    Add the following to the end of /etc/samba/smb.conf:
+Add the following to the end of /etc/samba/smb.conf:
 
 Ini, TOML
 
+```
 [Music]
    path = /home/pirate/Music
    browseable = yes
@@ -57,8 +60,12 @@ Ini, TOML
    public = yes
    writable = yes
    force user = pirate
+```
+Restart Samba: 
 
-    Restart Samba: sudo systemctl restart smbd
+```
+sudo systemctl restart smbd
+```
 
 4. Deploy the Script
 
@@ -71,8 +78,9 @@ Create a systemd service to ensure the jukebox runs at boot:
 
     Paste the service configuration:
 
-Ini, TOML
 
+Ini, TOML
+```
 [Unit]
 Description=Pirate Audio Player
 After=sound.target network.target smbd.service
@@ -85,8 +93,12 @@ User=pirate
 
 [Install]
 WantedBy=multi-user.target
+```
+Enable it: 
 
-    Enable it: sudo systemctl enable --now pirate-player.service
+```
+sudo systemctl enable --now pirate-player.service
+```
 
 Controls
 Button	Label	Function
