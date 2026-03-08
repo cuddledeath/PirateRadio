@@ -22,24 +22,29 @@ Safe Shutdown: Avoid SD card corruption with a hardware button combo (Vol+ and V
 
 Custom Branding: Supports a custom logo.png boot splash.
 
-Installation
-1. Hardware Requirements
+## Installation
 
-    Raspberry Pi Zero (W, WH, or 2W)
+### 1. Hardware Requirements
 
-    Pimoroni Pirate Audio DAC (3W, Line-out, or Headphone)
+Raspberry Pi Zero (W, WH, or 2W) with headerpins. 
 
-    MicroSD Card with Raspberry Pi OS (Lite recommended)
+Pimoroni Pirate Audio DAC (3W, Line-out, or Headphone)
 
-2. System Dependencies
+MicroSD Card with Raspberry Pi OS (Lite recommended)
+
+PiSugar (Optional)
+
+### 2. System Dependencies
 
 Install the required Python libraries and networking tools:
 Bash
 
+```
 sudo apt update
 sudo apt install python3-pygame python3-st7789 python3-pil python3-gpiozero samba wsdd -y
+```
 
-3. Setup Music Share
+### 3. Setup Music Share
 
 Configure Samba to allow wireless file transfers:
 
@@ -50,7 +55,6 @@ mkdir -p /home/pirate/Music
 Add the following to the end of /etc/samba/smb.conf:
 
 Ini, TOML
-
 ```
 [Music]
    path = /home/pirate/Music
@@ -61,23 +65,23 @@ Ini, TOML
    writable = yes
    force user = pirate
 ```
-Restart Samba: 
 
+Restart Samba: 
 ```
 sudo systemctl restart smbd
 ```
 
-4. Deploy the Script
+### 4. Deploy the Script
 
 Place pirate_player.py into /home/pirate/.
-5. Enable Auto-Start
+
+### 5. Enable Auto-Start
 
 Create a systemd service to ensure the jukebox runs at boot:
 
-    Create the file: sudo nano /etc/systemd/system/pirate-player.service
+Create the file: sudo nano /etc/systemd/system/pirate-player.service
 
-    Paste the service configuration:
-
+Paste the service configuration:
 
 Ini, TOML
 ```
@@ -111,11 +115,11 @@ Library Organization
 
 For the best experience, organize your music as follows:
 
-    Music/logo.png: (Optional) 240x240 image shown at boot.
+Music/logo.png: (Optional) 240x240 image shown at boot.
 
-    Music/Artist/Album/: Drop your MP3s here.
+Music/Artist/Album/: Drop your MP3s here.
 
-    Music/Artist/Album/cover.jpg: Drop a square image here to show album art.
+Music/Artist/Album/cover.jpg: Drop a square image here to show album art.
 
 License
 
