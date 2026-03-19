@@ -16,7 +16,9 @@ A headless, networked music appliance designed for the Raspberry Pi Zero and the
    Ensure the hardware interfaces are active:
    Bash
    
-   ```sudo raspi-config```
+   ```
+   sudo raspi-config
+   ```
    
    Interface Options -> I2C -> Yes
    
@@ -27,18 +29,26 @@ A headless, networked music appliance designed for the Raspberry Pi Zero and the
    Install the core libraries. Use the --break-system-packages flag if you are on a newer "Externally Managed" OS (Bookworm+):
    Bash
    
-   ```sudo apt update```
+   ```
+   sudo apt update
+   ```
    
-   ```sudo apt install python3-pygame python3-st7789 python3-pil python3-gpiozero python3-smbus i2c-tools samba wsdd -y```
+   ```
+   sudo apt install python3-pygame python3-st7789 python3-pil python3-gpiozero python3-smbus i2c-tools samba wsdd -y
+   ```
    
-   ```pip3 install pisugar --break-system-packages```
+   ```
+   pip3 install pisugar --break-system-packages
+   ```
 
 ### 3. Permissions
 
    Ensure the pirate user can access the hardware bus:
    Bash
    
+   ```
    sudo usermod -aG i2c pirate
+   ```
 
 ### 4. Setup Music Share (Samba)
 
