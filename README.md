@@ -19,6 +19,7 @@ A headless, networked music appliance designed for the Raspberry Pi Zero and the
    ```sudo raspi-config```
    
    Interface Options -> I2C -> Yes
+   
    Interface Options -> SPI -> Yes
 
 ### 2. System Dependencies
