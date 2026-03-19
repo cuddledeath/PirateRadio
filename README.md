@@ -1,9 +1,7 @@
 # PirateRadio
 
-This updated README.md now includes the PiSugar 3 hardware specifics, the direct I2C register configuration we discovered, and the "Externally Managed Environment" workaround for the battery library.
-Pirate Radio Jukebox 🏴‍☠️📻
-
 A headless, networked music appliance designed for the Raspberry Pi Zero and the Pimoroni Pirate Audio DAC. This project features recursive directory shuffling, automated album art display, and integrated battery monitoring for portable use.
+
 ## Hardware Requirements
 
    - Raspberry Pi Zero: (W, WH, or 2W)
