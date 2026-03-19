@@ -101,7 +101,10 @@ A + B	Hold 3s	Safe System Shutdown
    WantedBy=multi-user.target
    ```
 
-Enable it with: ```sudo systemctl enable --now pirate-player.service```
+Enable it with: 
+```
+sudo systemctl enable --now pirate-player.service
+```
 
 📜 License
 
