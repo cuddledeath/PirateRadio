@@ -16,9 +16,10 @@ A headless, networked music appliance designed for the Raspberry Pi Zero and the
    Ensure the hardware interfaces are active:
    Bash
    
-   sudo raspi-config
-   # Interface Options -> I2C -> Yes
-   # Interface Options -> SPI -> Yes
+   ```sudo raspi-config```
+   
+   Interface Options -> I2C -> Yes
+   Interface Options -> SPI -> Yes
 
 ### 2. System Dependencies
    
