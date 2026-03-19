@@ -28,7 +28,9 @@ A headless, networked music appliance designed for the Raspberry Pi Zero and the
    Bash
    
    ```sudo apt update```
+   
    ```sudo apt install python3-pygame python3-st7789 python3-pil python3-gpiozero python3-smbus i2c-tools samba wsdd -y```
+   
    ```pip3 install pisugar --break-system-packages```
 
 ### 3. Permissions
